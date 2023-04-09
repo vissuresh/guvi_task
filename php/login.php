@@ -26,7 +26,7 @@ if($result->num_rows == 0){
 else{
     $row = $result->fetch_assoc();
     if(password_verify($password, $row['password']) == false){
-        echo "WRONG_PASSWORD\n".$row['password'];
+        echo "WRONG_PASSWORD";
     }
     else{
         $userInfo = json_encode($row);
