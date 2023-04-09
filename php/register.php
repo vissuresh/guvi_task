@@ -94,7 +94,6 @@ if($exists > 0){
 else{
 
     // Create Hash and insert in MySQL
-    $password = hash('sha256', $password);
     $hash = password_hash($password, PASSWORD_BCRYPT);
     $query = "INSERT INTO users(email,password) values(?,?)";
     $stmt = $conn->prepare($query);

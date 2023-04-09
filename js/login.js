@@ -34,17 +34,16 @@ $(document).ready(function () {
                         alert("Username does not exist!");
                     }
     
-                    else{
-                        console.log(response);
-                        alert(response);
+                    else if(response == "WRONG_PASSWORD"){
+                        alert('Password does not match!');
                     }
     
-                    // else {
-                    //     console.log(JSON.parse(response));
-                    //     localStorage.setItem("userData", response);
-                    //     localStorage.setItem("token", loginInfo);
-                    //     location.href = "profile.html";
-                    // }
+                    else {
+                        console.log(JSON.parse(response));
+                        localStorage.setItem("userData", response);
+                        localStorage.setItem("token", loginInfo);
+                        location.href = "profile.html";
+                    }
                 },
     
                 error: function (xhr, status, error) {
