@@ -59,6 +59,7 @@ else{
             first_name = $('#first_name').val();
             last_name = $('#last_name').val();
             dob = $('#dob').val();
+            phone = $('#phone').val();
             address = $('#address').val();
 
             if (first_name == "" || last_name == "" || dob == "" || phone == "" || address == "") {
@@ -72,6 +73,7 @@ else{
                     dob: dob,
                     phone: phone,
                     address: address,
+                    email: email,
                 }
 
                 $.ajax({
@@ -82,9 +84,9 @@ else{
 
                     
                     success: function (response) {
-                        console.log(response)
+                        console.log(response);
                         
-                        if(response=='UPDATE_SUCCESS'){
+                        if(response.trim() == 'UPDATE_SUCCESS'){
                             alert("Data updated successfully");
                         }
 
@@ -105,3 +107,17 @@ else{
         });
     });
 }
+
+$(document).ready(function () {
+    $("#logout").on('click', function () {
+        $.ajax({
+            method: "POST",
+            url: "php/logout.php",
+            cache: false,
+            success: function (response) {
+                localStorage.clear();
+                location.href = "login.html";
+            }
+        });
+    })
+});
