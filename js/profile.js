@@ -18,7 +18,8 @@ else{
             cache: false,
 
             success: function (response) {
-                var userData = JSON.parse(response);
+                let userData = JSON.parse(response);
+                $("#email_display").html(userData.email);
                 $("#cur_first_name").html(userData.first_name);
                 $("#cur_last_name").html(userData.last_name);
                 $("#cur_dob").html(userData.dob);
@@ -27,11 +28,11 @@ else{
                 
                 
                 // Populating the form
-                $("#first_name").html(userData.first_name);
-                $("#last_name").html(userData.last_name);
-                $("#dob").html(userData.dob);
-                $("#phone").html(userData.phone);
-                $("#caddress").html(userData.address);
+                $("#first_name").val(userData.first_name);
+                $("#last_name").val(userData.last_name);
+                $("#dob").val(userData.dob);
+                $("#phone").val(userData.phone);
+                $("#address").val(userData.address);
 
             },
 
